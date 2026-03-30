@@ -57,29 +57,31 @@ def _to_station(record: dict) -> dict:
     )
     lat, lng = _pick_station_coordinates(record)
 
-    # Filter pollutants: only include keys with non-null values
-    raw_pollutants = record.get("pollution") or {}
-    pollutants = {k: v for k, v in raw_pollutants.items() if v is not None}
     return {
         "id": station_id,
         "name": str(station_name),
         "lat": lat,
         "lng": lng,
-        "pollutants": pollutants,
+        "pollutants": record.get("pollution") or {},
         "meteo": record.get("meteo") or {},
         "indices": record.get("indices") or [],
         "timestamp": record.get("timestamp"),
     }
 
 
-def build_payload(indices_path: pathlib.Path) -> list:
+def build_payload(indices_path: pathlib.Path) -> dict:
     records = load_jsonl(indices_path)
     stations = [_to_station(record) for record in records]
-    return stations
+    generated_at = datetime.now(timezone.utc).isoformat()
+    return {
+        "status": "ok",
+        "generatedAt": generated_at,
+        "recordCount": len(stations),
+        "stations": stations,
+    }
 
 
 def build_error_payload(indices_path: pathlib.Path, error_message: str) -> dict:
-    # For error, keep the wrapper for debugging
     records = load_jsonl(indices_path)
     stations = [_to_station(record) for record in records]
     generated_at = datetime.now(timezone.utc).isoformat()
@@ -92,12 +94,12 @@ def build_error_payload(indices_path: pathlib.Path, error_message: str) -> dict:
     }
 
 
-def post_payload(endpoint_url: str, payload: list, timeout_seconds: int) -> None:
+def post_payload(endpoint_url: str, payload: dict, timeout_seconds: int) -> None:
     response = requests.post(endpoint_url, json=payload, timeout=timeout_seconds)
     response.raise_for_status()
 
 
-def write_fallback(payload, fallback_dir: pathlib.Path) -> pathlib.Path:
+def write_fallback(payload: dict, fallback_dir: pathlib.Path) -> pathlib.Path:
     fallback_dir.mkdir(parents=True, exist_ok=True)
     ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     target = fallback_dir / f"indices_payload_{ts}.json"
@@ -117,7 +119,7 @@ def execute_pipeline(run_meteo: bool, pollution_input_csv: str) -> None:
 
 
 def publish_or_store(
-    payload,
+    payload: dict,
     endpoint_url: str,
     timeout_seconds: int,
     fallback_dir: pathlib.Path,
@@ -125,7 +127,7 @@ def publish_or_store(
     if endpoint_url.strip():
         try:
             post_payload(endpoint_url.strip(), payload, timeout_seconds)
-            LOGGER.info("POST success: %s | records=%s", endpoint_url.strip(), len(payload))
+            LOGGER.info("POST success: %s | records=%s", endpoint_url.strip(), payload["recordCount"])
             return
         except Exception as exc:
             target = write_fallback(payload, fallback_dir)
@@ -145,7 +147,7 @@ def main() -> int:
     parser.add_argument("--interval-minutes", type=int, default=60, help="Run frequency in minutes")
     parser.add_argument(
         "--endpoint-url",
-        default="",
+        default="http://localhost:8000",
         help="POST endpoint for publishing payload (if empty, payload is only written locally)",
     )
     parser.add_argument(
@@ -180,39 +182,11 @@ def main() -> int:
         default=0,
         help="Max cycles to execute (0 means infinite)",
     )
-    parser.add_argument(
-        "--init-last-days",
-        type=int,
-        default=0,
-        help="If >0, export payloads for the last N days and exit (initialization mode)",
-    )
     args = parser.parse_args()
 
     interval_seconds = max(args.interval_minutes, 1) * 60
     indices_path = pathlib.Path(args.indices_file)
     fallback_dir = pathlib.Path(args.fallback_dir)
-
-    # Initialization mode: export last N days and exit
-    if args.init_last_days > 0:
-        from datetime import timedelta
-        for i in range(args.init_last_days):
-            day = datetime.now(timezone.utc) - timedelta(days=i)
-            day_str = day.strftime("%Y-%m-%d")
-            LOGGER.info(f"[INIT] Exporting for day {day_str}")
-            # You may need to adapt this to pass the date to the pipeline steps
-            try:
-                execute_pipeline(
-                    run_meteo=args.run_meteo_each_cycle,
-                    pollution_input_csv=args.pollution_input_csv,
-                )
-                payload = build_payload(indices_path)
-                # Store with day in filename
-                target = fallback_dir / f"indices_payload_{day_str}.json"
-                target.write_text(json.dumps(payload, ensure_ascii=True), encoding="utf-8")
-                LOGGER.info(f"[INIT] Payload for {day_str} written to {target}")
-            except Exception as exc:
-                LOGGER.exception(f"[INIT] Failed for {day_str}: {exc}")
-        return 0
 
     cycle = 0
     while True:
