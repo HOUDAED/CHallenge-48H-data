@@ -1,0 +1,3013 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07002",
+    "Nom": "BOULOGNE-SEM",
+    "Altitude": 73,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.599667,
+     50.7325
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07003",
+    "Nom": "LE-TOUQUET",
+    "Altitude": 5,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.622833,
+     50.5145
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07005",
+    "Nom": "ABBEVILLE",
+    "Altitude": 69,
+    "Date_ouverture": "1922-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.834,
+     50.136
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07010",
+    "Nom": "DUNKERQUE",
+    "Altitude": 11,
+    "Date_ouverture": "1891-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.3395,
+     51.055833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07015",
+    "Nom": "LILLE-LESQUIN",
+    "Altitude": 47,
+    "Date_ouverture": "1944-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.0975,
+     50.57
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07020",
+    "Nom": "PTE DE LA HAGUE",
+    "Altitude": 6,
+    "Date_ouverture": "1879-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.939833,
+     49.725167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07024",
+    "Nom": "GONNEVILLE",
+    "Altitude": 134,
+    "Date_ouverture": "1956-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.4635,
+     49.652667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07027",
+    "Nom": "CAEN-CARPIQUET",
+    "Altitude": 67,
+    "Date_ouverture": "1944-10-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.456167,
+     49.18
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07031",
+    "Nom": "ST GATIEN DES B",
+    "Altitude": 139,
+    "Date_ouverture": "1931-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.167,
+     49.3645
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07037",
+    "Nom": "ROUEN-BOOS",
+    "Altitude": 156,
+    "Date_ouverture": "1968-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.178333,
+     49.3895
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07038",
+    "Nom": "EVREUX-HUEST",
+    "Altitude": 138,
+    "Date_ouverture": "1968-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.221667,
+     49.025
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07040",
+    "Nom": "DIEPPE",
+    "Altitude": 40,
+    "Date_ouverture": "1945-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.09,
+     49.932833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07046",
+    "Nom": "OCTEVILLE",
+    "Altitude": 90,
+    "Date_ouverture": "1994-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.091667,
+     49.533
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07053",
+    "Nom": "PONTOISE - AERO",
+    "Altitude": 87,
+    "Date_ouverture": "1946-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.027667,
+     49.0905
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07055",
+    "Nom": "BEAUVAIS-TILLE",
+    "Altitude": 89,
+    "Date_ouverture": "1940-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.127167,
+     49.4465
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07059",
+    "Nom": "MEAULTE",
+    "Altitude": 107,
+    "Date_ouverture": "1987-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.703833,
+     49.971833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07061",
+    "Nom": "ST QUENTIN",
+    "Altitude": 98,
+    "Date_ouverture": "1933-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.206,
+     49.818333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07072",
+    "Nom": "REIMS-PRUNAY",
+    "Altitude": 95,
+    "Date_ouverture": "2012-04-23"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.155333,
+     49.209833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07075",
+    "Nom": "CHARLEVILLE-MEZ",
+    "Altitude": 145,
+    "Date_ouverture": "1990-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.643167,
+     49.782833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07093",
+    "Nom": "AEROPORT METZ-NANCY-LORRAINE",
+    "Altitude": 260,
+    "Date_ouverture": "1991-10-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.243167,
+     48.979333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07100",
+    "Nom": "OUESSANT-STIFF",
+    "Altitude": 64,
+    "Date_ouverture": "1995-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -5.057,
+     48.473333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07101",
+    "Nom": "PLOUDALMEZEAU",
+    "Altitude": 40,
+    "Date_ouverture": "1998-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.664167,
+     48.548
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07106",
+    "Nom": "LANDIVISIAU",
+    "Altitude": 109,
+    "Date_ouverture": "1966-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.151833,
+     48.532
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07109",
+    "Nom": "LANVEOC",
+    "Altitude": 81,
+    "Date_ouverture": "1939-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.439333,
+     48.279333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07110",
+    "Nom": "BREST-GUIPAVAS",
+    "Altitude": 92,
+    "Date_ouverture": "1945-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.391167,
+     48.453833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07117",
+    "Nom": "PLOUMANAC'H",
+    "Altitude": 55,
+    "Date_ouverture": "1947-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.473167,
+     48.825833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07118",
+    "Nom": "LANNION_AERO",
+    "Altitude": 85,
+    "Date_ouverture": "1993-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.468667,
+     48.755333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07120",
+    "Nom": "ST BRIEUC",
+    "Altitude": 135,
+    "Date_ouverture": "1985-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.853167,
+     48.5365
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07125",
+    "Nom": "DINARD",
+    "Altitude": 65,
+    "Date_ouverture": "1948-03-29"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.076333,
+     48.584833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07130",
+    "Nom": "RENNES-ST JACQUES",
+    "Altitude": 36,
+    "Date_ouverture": "1940-07-17"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.734,
+     48.068833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07134",
+    "Nom": "LAVAL-ETRONNIER",
+    "Altitude": 100,
+    "Date_ouverture": "2010-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.7465,
+     48.030667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07139",
+    "Nom": "ALENCON",
+    "Altitude": 143,
+    "Date_ouverture": "1945-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.110167,
+     48.4455
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07140",
+    "Nom": "CHATEAUDUN",
+    "Altitude": 126,
+    "Date_ouverture": "1951-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.376333,
+     48.061333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07143",
+    "Nom": "CHARTRES",
+    "Altitude": 155,
+    "Date_ouverture": "1918-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.501167,
+     48.4605
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07145",
+    "Nom": "TRAPPES",
+    "Altitude": 167,
+    "Date_ouverture": "1904-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.009833,
+     48.774333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07146",
+    "Nom": "TOUSSUS LE NOBLE",
+    "Altitude": 154,
+    "Date_ouverture": "1947-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.1135,
+     48.750667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07147",
+    "Nom": "VILLACOUBLAY",
+    "Altitude": 174,
+    "Date_ouverture": "1940-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.204,
+     48.7725
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07149",
+    "Nom": "ORLY",
+    "Altitude": 86,
+    "Date_ouverture": "1921-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.397,
+     48.718
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07150",
+    "Nom": "LE BOURGET",
+    "Altitude": 49,
+    "Date_ouverture": "1920-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.427667,
+     48.967333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07153",
+    "Nom": "MELUN",
+    "Altitude": 91,
+    "Date_ouverture": "1940-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.6795,
+     48.610333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07156",
+    "Nom": "PARIS-MONTSOURIS",
+    "Altitude": 75,
+    "Date_ouverture": "1872-06-17"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.337833,
+     48.821667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07157",
+    "Nom": "ROISSY",
+    "Altitude": 108,
+    "Date_ouverture": "1974-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.534333,
+     49.015167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07166",
+    "Nom": "VATRY-AERO",
+    "Altitude": 179,
+    "Date_ouverture": "1996-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.164667,
+     48.777167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07168",
+    "Nom": "TROYES-BARBEREY",
+    "Altitude": 112,
+    "Date_ouverture": "1975-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.02,
+     48.324667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07169",
+    "Nom": "ST-DIZIER",
+    "Altitude": 139,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.903667,
+     48.631333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07180",
+    "Nom": "NANCY-ESSEY",
+    "Altitude": 212,
+    "Date_ouverture": "1927-09-12"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.2215,
+     48.687833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07181",
+    "Nom": "NANCY-OCHEY",
+    "Altitude": 336,
+    "Date_ouverture": "1963-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.959833,
+     48.581
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07190",
+    "Nom": "STRASBOURG-ENTZHEIM",
+    "Altitude": 150,
+    "Date_ouverture": "1923-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.640333,
+     48.5495
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07197",
+    "Nom": "COLMAR-MEYENHEIM",
+    "Altitude": 207,
+    "Date_ouverture": "1956-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.407667,
+     47.928667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07201",
+    "Nom": "QUIMPER",
+    "Altitude": 82,
+    "Date_ouverture": "1948-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -4.160667,
+     47.973
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07203",
+    "Nom": "ILE DE GROIX",
+    "Altitude": 41,
+    "Date_ouverture": "1864-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.502333,
+     47.652333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07205",
+    "Nom": "LORIENT-LANN BIHOUE",
+    "Altitude": 45,
+    "Date_ouverture": "1951-10-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.435667,
+     47.762833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07217",
+    "Nom": "ST NAZAIRE-MONTOIR",
+    "Altitude": 3,
+    "Date_ouverture": "1957-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -2.1545,
+     47.313833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07222",
+    "Nom": "NANTES-BOUGUENAIS",
+    "Altitude": 26,
+    "Date_ouverture": "1945-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.608833,
+     47.15
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07228",
+    "Nom": "MARCE",
+    "Altitude": 53,
+    "Date_ouverture": "1999-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.317,
+     47.561833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07230",
+    "Nom": "BEAUCOUZE",
+    "Altitude": 50,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.614333,
+     47.479
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07235",
+    "Nom": "LE MANS",
+    "Altitude": 51,
+    "Date_ouverture": "1944-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.194167,
+     47.945833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07240",
+    "Nom": "TOURS",
+    "Altitude": 108,
+    "Date_ouverture": "1959-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.727333,
+     47.4445
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07245",
+    "Nom": "BLOIS",
+    "Altitude": 119,
+    "Date_ouverture": "1990-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.212333,
+     47.6785
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07247",
+    "Nom": "ROMORANTIN",
+    "Altitude": 83,
+    "Date_ouverture": "1921-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.6875,
+     47.319667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07249",
+    "Nom": "ORLEANS",
+    "Altitude": 123,
+    "Date_ouverture": "1937-10-11"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.778167,
+     47.990667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07255",
+    "Nom": "BOURGES",
+    "Altitude": 161,
+    "Date_ouverture": "1945-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.359833,
+     47.059167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07257",
+    "Nom": "AVORD",
+    "Altitude": 175,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.642167,
+     47.052167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07260",
+    "Nom": "NEVERS-MARZY",
+    "Altitude": 175,
+    "Date_ouverture": "1946-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.1145,
+     46.999333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07266",
+    "Nom": "AUXERRE-PERRIGNY",
+    "Altitude": 152,
+    "Date_ouverture": "2012-11-22"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.549667,
+     47.824667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07280",
+    "Nom": "DIJON-LONGVIC",
+    "Altitude": 219,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.088333,
+     47.267833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07283",
+    "Nom": "LANGRES",
+    "Altitude": 466,
+    "Date_ouverture": "1937-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.3375,
+     47.843667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07288",
+    "Nom": "BESANCON",
+    "Altitude": 307,
+    "Date_ouverture": "1884-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.988833,
+     47.249
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07292",
+    "Nom": "LUXEUIL",
+    "Altitude": 271,
+    "Date_ouverture": "1918-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.363833,
+     47.787
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07296",
+    "Nom": "DORANS",
+    "Altitude": 401,
+    "Date_ouverture": "2008-11-05"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.837,
+     47.591667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07299",
+    "Nom": "BALE-MULHOUSE",
+    "Altitude": 263,
+    "Date_ouverture": "1946-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.51,
+     47.614333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07306",
+    "Nom": "LA ROCHE SUR YON",
+    "Altitude": 88,
+    "Date_ouverture": "1984-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.381833,
+     46.705
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07314",
+    "Nom": "CHASSIRON",
+    "Altitude": 11,
+    "Date_ouverture": "1879-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.411667,
+     46.046833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07316",
+    "Nom": "LA ROCHELLE-ILE DE RE",
+    "Altitude": 20,
+    "Date_ouverture": "2000-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.193167,
+     46.178
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07330",
+    "Nom": "NIORT",
+    "Altitude": 57,
+    "Date_ouverture": "1958-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.400167,
+     46.315833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07335",
+    "Nom": "POITIERS-BIARD",
+    "Altitude": 125,
+    "Date_ouverture": "1921-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.314333,
+     46.593833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07354",
+    "Nom": "CHATEAUROUX  DEOLS",
+    "Altitude": 158,
+    "Date_ouverture": "1893-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.741,
+     46.869833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07361",
+    "Nom": "GUERET-ST LAURENT",
+    "Altitude": 365,
+    "Date_ouverture": "2011-05-09"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.950333,
+     46.1755
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07374",
+    "Nom": "VICHY-CHARMEIL",
+    "Altitude": 249,
+    "Date_ouverture": "1941-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.398667,
+     46.166667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07379",
+    "Nom": "ST YAN",
+    "Altitude": 242,
+    "Date_ouverture": "1954-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.0165,
+     46.408333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07385",
+    "Nom": "MACON",
+    "Altitude": 219,
+    "Date_ouverture": "1943-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.794333,
+     46.2945
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07386",
+    "Nom": "TAVAUX SA",
+    "Altitude": 195,
+    "Date_ouverture": "1995-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.427333,
+     47.043833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07412",
+    "Nom": "COGNAC",
+    "Altitude": 30,
+    "Date_ouverture": "1944-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.315833,
+     45.665
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07434",
+    "Nom": "LIMOGES-BELLEGARDE",
+    "Altitude": 402,
+    "Date_ouverture": "1973-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.175,
+     45.861167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07438",
+    "Nom": "BRIVE",
+    "Altitude": 115,
+    "Date_ouverture": "1987-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.473333,
+     45.146667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07439",
+    "Nom": "BRIVE-SOUILLAC",
+    "Altitude": 295,
+    "Date_ouverture": "2010-06-15"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.491667,
+     45.036333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07460",
+    "Nom": "CLERMONT-FD",
+    "Altitude": 331,
+    "Date_ouverture": "1922-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.149333,
+     45.786833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07471",
+    "Nom": "LE PUY-LOUDES",
+    "Altitude": 833,
+    "Date_ouverture": "1983-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.764,
+     45.0745
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07475",
+    "Nom": "ST ETIENNE-BOUTHEON",
+    "Altitude": 395,
+    "Date_ouverture": "1946-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.293833,
+     45.545667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07480",
+    "Nom": "LYON-BRON",
+    "Altitude": 202,
+    "Date_ouverture": "1888-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.949167,
+     45.721333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07481",
+    "Nom": "LYON-ST EXUPERY",
+    "Altitude": 235,
+    "Date_ouverture": "1975-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.077833,
+     45.7265
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07482",
+    "Nom": "AMBERIEU",
+    "Altitude": 250,
+    "Date_ouverture": "1934-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.329333,
+     45.9765
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07486",
+    "Nom": "GRENOBLE-ST GEOIRS",
+    "Altitude": 384,
+    "Date_ouverture": "1940-10-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.313333,
+     45.364
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07490",
+    "Nom": "MEYTHET",
+    "Altitude": 455,
+    "Date_ouverture": "1970-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.094,
+     45.928167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07491",
+    "Nom": "CHAMBERY-AIX",
+    "Altitude": 235,
+    "Date_ouverture": "1973-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.878,
+     45.641333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07497",
+    "Nom": "BOURG ST MAURICE",
+    "Altitude": 865,
+    "Date_ouverture": "1945-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.763333,
+     45.612667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07502",
+    "Nom": "CAZAUX",
+    "Altitude": 23,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.132,
+     44.534667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07503",
+    "Nom": "BISCARROSSE",
+    "Altitude": 35,
+    "Date_ouverture": "1964-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.2475,
+     44.431667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07510",
+    "Nom": "BORDEAUX-MERIGNAC",
+    "Altitude": 47,
+    "Date_ouverture": "1920-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.691333,
+     44.830667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07524",
+    "Nom": "AGEN-LA GARENNE",
+    "Altitude": 58,
+    "Date_ouverture": "1939-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.594667,
+     44.172167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07530",
+    "Nom": "BERGERAC",
+    "Altitude": 49,
+    "Date_ouverture": "1988-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.524167,
+     44.822833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07535",
+    "Nom": "GOURDON",
+    "Altitude": 260,
+    "Date_ouverture": "1961-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.396667,
+     44.745
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07540",
+    "Nom": "MONTAUBAN",
+    "Altitude": 106,
+    "Date_ouverture": "1865-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.376667,
+     44.028
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07549",
+    "Nom": "AURILLAC",
+    "Altitude": 632,
+    "Date_ouverture": "1945-08-09"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.419167,
+     44.8915
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07552",
+    "Nom": "RODEZ-AVEYRON",
+    "Altitude": 578,
+    "Date_ouverture": "1970-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.4825,
+     44.410333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07554",
+    "Nom": "MENDE",
+    "Altitude": 932,
+    "Date_ouverture": "1984-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.4545,
+     44.533667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07558",
+    "Nom": "MILLAU",
+    "Altitude": 712,
+    "Date_ouverture": "1964-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.0195,
+     44.1185
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07560",
+    "Nom": "MONT AIGOUAL",
+    "Altitude": 1567,
+    "Date_ouverture": "1895-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.5815,
+     44.121333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07563",
+    "Nom": "AVIGNON",
+    "Altitude": 34,
+    "Date_ouverture": "1993-10-31"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.9025,
+     43.911333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07570",
+    "Nom": "LANAS SYN",
+    "Altitude": 265,
+    "Date_ouverture": "1990-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.368167,
+     44.537167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07577",
+    "Nom": "MONTELIMAR",
+    "Altitude": 73,
+    "Date_ouverture": "1920-06-23"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.733,
+     44.581167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07579",
+    "Nom": "ORANGE",
+    "Altitude": 57,
+    "Date_ouverture": "1948-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.861,
+     44.1445
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07586",
+    "Nom": "CARPENTRAS",
+    "Altitude": 98,
+    "Date_ouverture": "1963-08-26"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.058333,
+     44.083667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07588",
+    "Nom": "ST AUBAN",
+    "Altitude": 458,
+    "Date_ouverture": "1954-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.989667,
+     44.062167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07591",
+    "Nom": "EMBRUN",
+    "Altitude": 873,
+    "Date_ouverture": "1806-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.508667,
+     44.571167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07593",
+    "Nom": "VILLAR ST PANCRACE",
+    "Altitude": 1310,
+    "Date_ouverture": "2003-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.640333,
+     44.880333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07600",
+    "Nom": "SOCOA",
+    "Altitude": 21,
+    "Date_ouverture": "1920-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.6865,
+     43.3945
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07602",
+    "Nom": "BIARRITZ-PAYS-BASQUE",
+    "Altitude": 71,
+    "Date_ouverture": "1953-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.534333,
+     43.469333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07603",
+    "Nom": "DAX",
+    "Altitude": 31,
+    "Date_ouverture": "1958-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -1.07,
+     43.689833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07607",
+    "Nom": "MONT-DE-MARSAN",
+    "Altitude": 59,
+    "Date_ouverture": "1944-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.500167,
+     43.909833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07610",
+    "Nom": "PAU-UZEIN",
+    "Altitude": 183,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -0.416333,
+     43.385
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07621",
+    "Nom": "TARBES-LOURDES-PYRENEES",
+    "Altitude": 360,
+    "Date_ouverture": "1944-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.0,
+     43.188
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07622",
+    "Nom": "AUCH",
+    "Altitude": 122,
+    "Date_ouverture": "1985-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.601167,
+     43.689
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07627",
+    "Nom": "ST GIRONS",
+    "Altitude": 414,
+    "Date_ouverture": "1949-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.106833,
+     43.005333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07630",
+    "Nom": "TOULOUSE-BLAGNAC",
+    "Altitude": 151,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.378833,
+     43.621
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07632",
+    "Nom": "ALBI",
+    "Altitude": 172,
+    "Date_ouverture": "1976-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.116333,
+     43.914667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07635",
+    "Nom": "CARCASSONNE",
+    "Altitude": 128,
+    "Date_ouverture": "1948-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.2955,
+     43.215333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07638",
+    "Nom": "BEZIERS-VIAS",
+    "Altitude": 15,
+    "Date_ouverture": "1982-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.352667,
+     43.322
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07641",
+    "Nom": "SETE",
+    "Altitude": 75,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.692167,
+     43.397333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07643",
+    "Nom": "MONTPELLIER-AEROPORT",
+    "Altitude": 1,
+    "Date_ouverture": "1939-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.964667,
+     43.576167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07645",
+    "Nom": "NIMES-COURBESSAC",
+    "Altitude": 59,
+    "Date_ouverture": "1921-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.406333,
+     43.856833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07646",
+    "Nom": "NIMES-GARONS",
+    "Altitude": 94,
+    "Date_ouverture": "1964-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.412833,
+     43.772833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07647",
+    "Nom": "ISTRES",
+    "Altitude": 23,
+    "Date_ouverture": "1920-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     4.9275,
+     43.522667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07648",
+    "Nom": "SALON DE PROVENCE",
+    "Altitude": 58,
+    "Date_ouverture": "1938-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.108,
+     43.612833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07650",
+    "Nom": "MARIGNANE",
+    "Altitude": 6,
+    "Date_ouverture": "1920-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     5.2115,
+     43.437
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07666",
+    "Nom": "LEUCATE",
+    "Altitude": 42,
+    "Date_ouverture": "1995-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.059667,
+     42.917333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07667",
+    "Nom": "HYERES",
+    "Altitude": 2,
+    "Date_ouverture": "1958-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.147,
+     43.1005
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07675",
+    "Nom": "LE LUC",
+    "Altitude": 80,
+    "Date_ouverture": "1946-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.386167,
+     43.383167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07678",
+    "Nom": "ILE DU LEVANT",
+    "Altitude": 118,
+    "Date_ouverture": "1968-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.469333,
+     43.0325
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07684",
+    "Nom": "CANNES",
+    "Altitude": 2,
+    "Date_ouverture": "1949-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.9505,
+     43.5565
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07690",
+    "Nom": "NICE",
+    "Altitude": 2,
+    "Date_ouverture": "1942-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     7.209,
+     43.648833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07747",
+    "Nom": "PERPIGNAN",
+    "Altitude": 42,
+    "Date_ouverture": "1924-11-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.872833,
+     42.737167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07749",
+    "Nom": "CAP BEAR",
+    "Altitude": 72,
+    "Date_ouverture": "1879-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.133667,
+     42.516167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07753",
+    "Nom": "ILE ROUSSE",
+    "Altitude": 140,
+    "Date_ouverture": "1988-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.9225,
+     42.633333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07754",
+    "Nom": "CALVI",
+    "Altitude": 57,
+    "Date_ouverture": "1960-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.7915,
+     42.5295
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07761",
+    "Nom": "AJACCIO",
+    "Altitude": 5,
+    "Date_ouverture": "1944-03-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     8.792667,
+     41.918
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07765",
+    "Nom": "SOLENZARA",
+    "Altitude": 12,
+    "Date_ouverture": "1960-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.400833,
+     41.921833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07770",
+    "Nom": "CAP PERTUSATO",
+    "Altitude": 107,
+    "Date_ouverture": "1882-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.178333,
+     41.374833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07775",
+    "Nom": "ALISTRO",
+    "Altitude": 65,
+    "Date_ouverture": "1990-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.5415,
+     42.259667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07780",
+    "Nom": "FIGARI",
+    "Altitude": 20,
+    "Date_ouverture": "1979-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.103667,
+     41.505167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07785",
+    "Nom": "CAP CORSE",
+    "Altitude": 72,
+    "Date_ouverture": "1882-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.3595,
+     43.003833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "07790",
+    "Nom": "BASTIA",
+    "Altitude": 10,
+    "Date_ouverture": "1944-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     9.485167,
+     42.540667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61968",
+    "Nom": "GLORIEUSES",
+    "Altitude": 3,
+    "Date_ouverture": "1960-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     47.289667,
+     -11.582667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61970",
+    "Nom": "JUAN DE NOVA",
+    "Altitude": 9,
+    "Date_ouverture": "1974-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     42.712,
+     -17.054667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61972",
+    "Nom": "EUROPA",
+    "Altitude": 6,
+    "Date_ouverture": "1951-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     40.340667,
+     -22.344167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61976",
+    "Nom": "TROMELIN",
+    "Altitude": 7,
+    "Date_ouverture": "1955-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     54.520667,
+     -15.887667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61980",
+    "Nom": "GILLOT-AEROPORT",
+    "Altitude": 8,
+    "Date_ouverture": "1953-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     55.528667,
+     -20.892167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61996",
+    "Nom": "NOUVELLE AMSTERDAM",
+    "Altitude": 27,
+    "Date_ouverture": "1950-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     77.569167,
+     -37.795167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61997",
+    "Nom": "CROZET",
+    "Altitude": 146,
+    "Date_ouverture": "1974-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     51.856667,
+     -46.4325
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "61998",
+    "Nom": "KERGUELEN",
+    "Altitude": 29,
+    "Date_ouverture": "1950-01-02"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     70.243333,
+     -49.352333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "67005",
+    "Nom": "PAMANDZI",
+    "Altitude": 7,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     45.282833,
+     -12.8055
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "71805",
+    "Nom": "ST-PIERRE",
+    "Altitude": 21,
+    "Date_ouverture": "1966-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -56.179167,
+     46.766333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "78890",
+    "Nom": "LA DESIRADE METEO",
+    "Altitude": 27,
+    "Date_ouverture": "1950-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -61.004,
+     16.335
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "78894",
+    "Nom": "ST-BARTHELEMY METEO",
+    "Altitude": 44,
+    "Date_ouverture": "1959-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -62.852167,
+     17.9015
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "78897",
+    "Nom": "LE RAIZET AERO",
+    "Altitude": 11,
+    "Date_ouverture": "1950-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -61.516333,
+     16.264
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "78922",
+    "Nom": "TRINITE-CARAVEL",
+    "Altitude": 26,
+    "Date_ouverture": "1963-09-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -60.875333,
+     14.7745
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "78925",
+    "Nom": "LAMENTIN-AERO",
+    "Altitude": 3,
+    "Date_ouverture": "1947-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -60.995667,
+     14.595333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "81401",
+    "Nom": "SAINT LAURENT",
+    "Altitude": 5,
+    "Date_ouverture": "1949-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -54.031667,
+     5.4855
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "81405",
+    "Nom": "CAYENNE-MATOURY",
+    "Altitude": 4,
+    "Date_ouverture": "1946-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -52.365333,
+     4.822333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "81408",
+    "Nom": "SAINT GEORGES",
+    "Altitude": 6,
+    "Date_ouverture": "1953-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -51.804667,
+     3.890667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "81415",
+    "Nom": "MARIPASOULA",
+    "Altitude": 106,
+    "Date_ouverture": "1953-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -54.028333,
+     3.640167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "89642",
+    "Nom": "DUMONT D'URVILLE",
+    "Altitude": 43,
+    "Date_ouverture": "1956-01-18"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     140.001,
+     -66.663167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91570",
+    "Nom": "SURPRISE",
+    "Altitude": 4,
+    "Date_ouverture": "1994-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     163.086333,
+     -18.48
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91574",
+    "Nom": "CHESTERFIELD",
+    "Altitude": 4,
+    "Date_ouverture": "1994-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     158.4755,
+     -19.968333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91577",
+    "Nom": "KOUMAC",
+    "Altitude": 25,
+    "Date_ouverture": "1949-12-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     164.284167,
+     -20.558667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91582",
+    "Nom": "OUANAHAM",
+    "Altitude": 30,
+    "Date_ouverture": "1960-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     167.241167,
+     -20.777667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91590",
+    "Nom": "LA TONTOUTA",
+    "Altitude": 37,
+    "Date_ouverture": "1949-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     166.222333,
+     -22.017333
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91592",
+    "Nom": "NOUMEA",
+    "Altitude": 69,
+    "Date_ouverture": "1860-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     166.452833,
+     -22.276
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91753",
+    "Nom": "HIHIFO",
+    "Altitude": 30,
+    "Date_ouverture": "1970-07-13"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -176.194167,
+     -13.239833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91754",
+    "Nom": "MAOPOOPO",
+    "Altitude": 35,
+    "Date_ouverture": "1977-10-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -178.121,
+     -14.307833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91925",
+    "Nom": "HIVA-OA",
+    "Altitude": 51,
+    "Date_ouverture": "1930-05-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -139.035667,
+     -9.806
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91929",
+    "Nom": "BORA-BORA-MOTU-AERO",
+    "Altitude": 3,
+    "Date_ouverture": "1976-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -151.752,
+     -16.445167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91936",
+    "Nom": "TAIARAPU-EST",
+    "Altitude": 2,
+    "Date_ouverture": "1968-06-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -149.158833,
+     -17.745667
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91938",
+    "Nom": "FAAA",
+    "Altitude": 2,
+    "Date_ouverture": "1957-07-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -149.614333,
+     -17.555167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91943",
+    "Nom": "TAKAROA",
+    "Altitude": 2,
+    "Date_ouverture": "1951-08-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -145.025167,
+     -14.456833
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91944",
+    "Nom": "HAO AERO",
+    "Altitude": 5,
+    "Date_ouverture": "1962-02-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -140.961167,
+     -18.063
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91948",
+    "Nom": "MANGAREVA",
+    "Altitude": 91,
+    "Date_ouverture": "1980-04-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -134.965333,
+     -23.130167
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "Id": "91958",
+    "Nom": "RAPA",
+    "Altitude": 2,
+    "Date_ouverture": "1937-01-01"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -144.334833,
+     -27.618333
+    ]
+   }
+  }
+ ]
+}

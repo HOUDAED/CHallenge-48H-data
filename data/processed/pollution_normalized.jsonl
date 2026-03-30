@@ -1,0 +1,2 @@
+{"stationId": "ST_001", "timestamp": "2025-12-31T10:00:00+00:00", "coordinates": {"latitude": 48.85, "longitude": 2.35}, "pollution": {"pm25": 12.4, "pm10": null, "no2": 21.8, "o3": null, "co": null, "so2": null}}
+{"stationId": "ST_002", "timestamp": "2025-12-31T11:00:00+00:00", "coordinates": {"latitude": 45.76, "longitude": 4.84}, "pollution": {"pm25": null, "pm10": 18.2, "no2": null, "o3": null, "co": null, "so2": null}}

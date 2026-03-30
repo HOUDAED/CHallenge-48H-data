@@ -1,0 +1,5 @@
+{
+  "daily_csv_url_template": "https://object.infra.data.gouv.fr/ineris-prod/lcsqa/air/temps-reel/{date}/FR_E2_{date}.csv",
+  "latest_hourly_csv_resource_url": "https://www.data.gouv.fr/api/1/datasets/r/157ceed4-ce03-4c7d-9cd7-ae60ea07417b",
+  "default_lookback_days": 14
+}

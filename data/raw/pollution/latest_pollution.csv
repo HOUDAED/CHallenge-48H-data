@@ -1,0 +1,4 @@
+station_id;timestamp;polluant;valeur;latitude;longitude
+ST_001;2025-12-31T10:00:00Z;PM2.5;12.4;48.85;2.35
+ST_001;2025-12-31T10:00:00Z;NO2;21.8;48.85;2.35
+ST_002;2025-12-31T11:00:00Z;PM10;18.2;45.76;4.84
