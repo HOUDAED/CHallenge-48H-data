@@ -2,9 +2,13 @@
 
 Air quality + meteorological data integration platform for France's major cities.
 
+
+
 ## Setup
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
@@ -54,7 +58,7 @@ python3 clean_normalize.py
 `clean_normalize.py` cleans both datasets, joins them geospatially and saves 6 files to `data/processed/`.
 
 
-## API Server:  THIS PART IS REPLACED WITH HTTP REQUEST 
+## API Server:  THIS PART IS REPLACED WITH HTTP REQUEST (STEP "ENDPOINT")
 
 ```bash
 ### Starts FastAPI server on port 8000
@@ -92,6 +96,33 @@ pipeline.run_realtime()           # yesterday's data (most recent available)
 ```
 
 The orchestrator fetches, cleans, normalizes, persists processed files, and reloads the API store automatically.
+
+## Endpoint
+
+```bash
+
+ python3 test_receiver.py
+
+
+
+ Terminal 1 — start the receiver
+
+  python3 test_receiver.py
+  # Listening on http://localhost:9000 — waiting for POST requests...
+
+  Terminal 2 — send the data
+   # Full send (423 stations, batches of 50)
+  python3 send_data.py --url http://localhost:9000 --batch 50
+
+    # Check the data before sending (no network call)
+  python3 send_data.py --url http://localhost:9000 --dry-run
+
+  When you have a real target app
+
+  python3 send_data.py --url https://your-app.com/api/stations
+
+  The receiver just needs to accept POST with a JSON array of Station objects.
+```
 
 ## Tests
 
