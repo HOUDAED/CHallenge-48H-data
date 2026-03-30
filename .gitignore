@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.log
+data/raw/*.csv
+data/raw/*.csv.gz
+data/raw/*.geojson
+data/processed/*.jsonl
+data/processed/*.csv
+data/processed/*.md
