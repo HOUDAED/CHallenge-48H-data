@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 ```bash
 # 1. Fetch raw data (if not already done)
+## Downloads raw LCSQA + SYNOP   data → data/processed
+
 python3 fetch_data.py
 
 # 2. Clean, normalize and join
@@ -24,15 +26,38 @@ python3 fetch_data.py
 ### null value rows
 ### Columns to keep: timestamp, station_id, station_name, pollutant, value, unit, validité
 
+##SYNOP
+###Has lat, lng — good for geospatial join
+###Timestamps are tz-aware (UTC)
+###Columns to keep: station_id, station_name, lat, lng, timestamp, temperature, humidity, pressure, wind_speed, ###wind_direction, rainfall
+###Some nulls in meteo fields (~0.5–20% depending on column)
+
+
 python3 clean_normalize.py
 ```
+
+## Geospatial Join (normalizer.py)
+### 1. Merge LCSQA station coordinates into lcsqa_df on station_id
+### 2. For each unique LCSQA station, find nearest SYNOP station using haversine distance:
+ # haversine formula (no extra lib needed)
+### def haversine(lat1, lon1, lat2, lon2) -> float  # returns km
+### 3. Accept match only if distance ≤ 50 km
+### 4. Build mapping table: lcsqa_station_id → synop_station_id
+### 5. Join SYNOP meteo onto LCSQA rows via this mapping
+
+##  Temporal Alignment
+### Round both timestamps to the nearest hour
+### 2. SYNOP is 3-hourly → after rounding, forward fill to hourly within each station
+### 3. Merge LCSQA + SYNOP on (synop_station_id, timestamp_hour)
+
 
 `clean_normalize.py` cleans both datasets, joins them geospatially and saves 6 files to `data/processed/`.
 
 
-## API Server
+## API Server:  THIS PART IS REPLACED WITH HTTP REQUEST 
 
 ```bash
+### Starts FastAPI server on port 8000
 python3 main.py
 ```
 
@@ -67,3 +92,46 @@ pipeline.run_realtime()           # yesterday's data (most recent available)
 ```
 
 The orchestrator fetches, cleans, normalizes, persists processed files, and reloads the API store automatically.
+
+## Tests
+
+```bash
+
+pytest tests/test_api.py -v
+```
+
+## Indices
+
+ Le projet génère 2 indices
+ 1. Indice ATMO (id: "ATMO")
+  Interprétation :
+
+  ┌─────────┬───────────────┐
+  │ Valeur  │    Qualité    │
+  ├─────────┼───────────────┤
+  │ 0–20    │ Très bonne    │
+  ├─────────┼───────────────┤
+  │ 20–40   │ Bonne         │
+  ├─────────┼───────────────┤
+  │ 40–60   │ Moyenne       │
+  ├─────────┼───────────────┤
+  │ 60–80   │ Mauvaise      │
+  ├─────────┼───────────────┤
+  │ 80–100+ │ Très mauvaise │
+  └─────────┴───────────────┘
+
+    2. Indice IQA (id: "IQA")
+ 
+ Lien avec la météo
+
+  Les indices sont calculés à partir de la pollution uniquement, mais chaque réponse Station associe
+  systématiquement pollutants + meteo + indices pour le même horodatage. Cela permet côté visualisation de
+  corréler :
+
+  - Vent fort (windSpeed élevé) → dispersion des polluants → ATMO/IQA bas
+  - Pression haute + humidité forte → inversion thermique → polluants concentrés → ATMO/IQA haut
+  - Pluie (rainfall > 0) → lessivage des PM → PM2.5/PM10 en baisse
+
+  Un indice météo-pollution combiné n'est pas encore calculé côté serveur — les données sont exposées
+  ensemble pour que la couche de visualisation puisse construire cette corrélation.
+
