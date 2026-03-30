@@ -3,11 +3,15 @@ import argparse
 import csv
 import gzip
 import json
+import logging
 import pathlib
 from dataclasses import dataclass
 from datetime import timezone
 
 from dateutil import parser as date_parser
+
+
+LOGGER = logging.getLogger("transform_meteo_data")
 
 
 CARDINALS = [
@@ -144,6 +148,10 @@ def write_quality_report(report_path: pathlib.Path, counters: Counters) -> None:
 
 
 def main() -> int:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    )
     parser = argparse.ArgumentParser(description="Transform raw SYNOP CSV into normalized MeteoData records")
     parser.add_argument("--input", required=True, help="Path to synop_YYYY.csv.gz or synop_YYYY.csv")
     parser.add_argument(
@@ -180,9 +188,9 @@ def main() -> int:
 
     write_quality_report(report_path, counters)
 
-    print(f"Normalized records written to: {output_path}")
-    print(f"Quality report written to: {report_path}")
-    print(f"Rows: total={counters.total_rows}, valid={counters.valid_rows}")
+    LOGGER.info("Normalized records written to: %s", output_path)
+    LOGGER.info("Quality report written to: %s", report_path)
+    LOGGER.info("Rows: total=%s, valid=%s", counters.total_rows, counters.valid_rows)
     return 0
 
 

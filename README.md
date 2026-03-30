@@ -117,3 +117,25 @@ python3 scripts/join_meteo_pollution.py --meteo-input data/processed/meteo_norma
 
 - data/processed/station_snapshots.jsonl
 - data/processed/join_quality_report.md
+
+## Execution en boucle toutes les 60 minutes
+
+Le worker suivant execute le pipeline et publie un payload JSON a chaque cycle.
+
+```bash
+bash scripts/run_hourly_worker.sh
+```
+
+Variables d'environnement utiles:
+
+- `INTERVAL_MINUTES` (defaut: `60`)
+- `ENDPOINT_URL` (URL de POST cible, si vide les payloads sont ecrits dans `data/processed/outbox`)
+- `MAX_CYCLES` (defaut: `0` = infini)
+- `RUN_METEO_EACH_CYCLE` (`true`/`false`)
+- `POLLUTION_INPUT_CSV` (fichier CSV local pollution a reutiliser sur chaque cycle)
+
+Exemple (1 cycle de test):
+
+```bash
+MAX_CYCLES=1 INTERVAL_MINUTES=60 RUN_METEO_EACH_CYCLE=true ENDPOINT_URL='' bash scripts/run_hourly_worker.sh
+```

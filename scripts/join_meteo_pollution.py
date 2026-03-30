@@ -2,10 +2,16 @@
 import argparse
 import bisect
 import json
+import logging
 import math
 import pathlib
 from dataclasses import dataclass
 from datetime import datetime, timezone
+
+from scipy.spatial import cKDTree
+
+
+LOGGER = logging.getLogger("join_meteo_pollution")
 
 
 @dataclass
@@ -62,6 +68,23 @@ def load_meteo_stations(stations_geojson_path: pathlib.Path) -> dict[str, dict]:
     return stations
 
 
+def build_station_tree(
+    station_coords: dict[str, dict],
+    candidate_station_ids: set[str],
+) -> tuple[cKDTree, list[str]]:
+    points: list[tuple[float, float]] = []
+    station_ids: list[str] = []
+    for station_id, station in station_coords.items():
+        if station_id not in candidate_station_ids:
+            continue
+        points.append((station["latitude"], station["longitude"]))
+        station_ids.append(station_id)
+    if not points:
+        raise ValueError("No meteo station coordinates available to build spatial index")
+    tree = cKDTree(points)
+    return tree, station_ids
+
+
 def load_meteo_by_station(meteo_jsonl_path: pathlib.Path) -> tuple[dict[str, list], dict[str, list]]:
     rows_by_station: dict[str, list] = {}
     epochs_by_station: dict[str, list] = {}
@@ -90,28 +113,23 @@ def nearest_meteo_station(
     pollution_lat: float,
     pollution_lon: float,
     station_coords: dict[str, dict],
-    candidate_station_ids: set[str],
+    station_tree: cKDTree,
+    station_id_by_tree_idx: list[str],
     max_distance_km: float,
 ) -> tuple[str | None, float | None]:
-    best_station_id: str | None = None
-    best_distance: float | None = None
+    _, idx = station_tree.query((pollution_lat, pollution_lon), k=1)
+    station_id = station_id_by_tree_idx[int(idx)]
+    station = station_coords[station_id]
+    best_distance = haversine_km(
+        pollution_lat,
+        pollution_lon,
+        station["latitude"],
+        station["longitude"],
+    )
 
-    for station_id, station in station_coords.items():
-        if station_id not in candidate_station_ids:
-            continue
-        d = haversine_km(
-            pollution_lat,
-            pollution_lon,
-            station["latitude"],
-            station["longitude"],
-        )
-        if best_distance is None or d < best_distance:
-            best_distance = d
-            best_station_id = station_id
-
-    if best_distance is None or best_distance > max_distance_km:
+    if best_distance > max_distance_km:
         return None, None
-    return best_station_id, best_distance
+    return station_id, best_distance
 
 
 def nearest_meteo_observation(
@@ -162,6 +180,10 @@ def write_quality_report(report_path: pathlib.Path, counters: Counters) -> None:
 
 
 def main() -> int:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    )
     parser = argparse.ArgumentParser(
         description="Join pollution and meteo datasets by station id or nearest GPS station"
     )
@@ -216,6 +238,8 @@ def main() -> int:
     station_coords = load_meteo_stations(stations_geojson)
     rows_by_station, epochs_by_station = load_meteo_by_station(meteo_input)
     meteo_station_ids = set(rows_by_station.keys())
+    station_tree, station_id_by_tree_idx = build_station_tree(station_coords, meteo_station_ids)
+    LOGGER.info("Loaded %s meteo stations with observations", len(meteo_station_ids))
 
     counters = Counters()
     max_time_diff_seconds = args.max_time_diff_hours * 3600.0
@@ -260,7 +284,8 @@ def main() -> int:
                     float(lat),
                     float(lon),
                     station_coords,
-                    meteo_station_ids,
+                    station_tree,
+                    station_id_by_tree_idx,
                     args.max_distance_km,
                 )
                 if meteo_station_id is None:
@@ -287,10 +312,12 @@ def main() -> int:
             station_info = station_coords.get(meteo_station_id, {})
             joined = {
                 "stationId": pollution_station_id,
+                "stationName": station_info.get("name") or pollution_station_id,
                 "timestamp": pollution_timestamp,
                 "join": {
                     "method": join_method,
                     "meteoStationId": meteo_station_id,
+                    "meteoStationName": station_info.get("name"),
                     "distanceKm": None if distance_km is None else round(distance_km, 3),
                     "timeDeltaMinutes": round((time_diff_seconds or 0.0) / 60.0, 2),
                 },
@@ -309,9 +336,9 @@ def main() -> int:
 
     write_quality_report(report_path, counters)
 
-    print(f"Joined snapshots written to: {output_path}")
-    print(f"Join quality report written to: {report_path}")
-    print(
+    LOGGER.info("Joined snapshots written to: %s", output_path)
+    LOGGER.info("Join quality report written to: %s", report_path)
+    LOGGER.info(
         "Rows: "
         f"pollution={counters.total_pollution_rows}, "
         f"joined={counters.joined_rows}, "

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import logging
 import pathlib
 import sys
 from datetime import datetime, timedelta, timezone
 
 import requests
+
+
+LOGGER = logging.getLogger("download_pollution_data")
 
 
 def is_html_payload(payload: bytes) -> bool:
@@ -15,25 +19,50 @@ def is_html_payload(payload: bytes) -> bool:
 
 def try_download_csv(url: str, destination: pathlib.Path) -> bool:
     destination.parent.mkdir(parents=True, exist_ok=True)
-    with requests.get(url, stream=True, timeout=120) as response:
-        if response.status_code != 200:
+    tmp_path = destination.with_suffix(destination.suffix + ".part")
+    try:
+        with requests.get(url, stream=True, timeout=120) as response:
+            if response.status_code != 200:
+                LOGGER.warning("Download skipped with HTTP status %s for %s", response.status_code, url)
+                return False
+
+            first_chunk = b""
+            with tmp_path.open("wb") as target:
+                for chunk in response.iter_content(chunk_size=1024 * 1024):
+                    if not chunk:
+                        continue
+                    if not first_chunk:
+                        first_chunk = chunk
+                        if is_html_payload(first_chunk):
+                            LOGGER.warning("HTML payload detected instead of CSV for %s", url)
+                            return False
+                    target.write(chunk)
+
+        if tmp_path.stat().st_size <= 0:
+            LOGGER.warning("Downloaded file is empty for %s", url)
             return False
 
-        first_chunk = b""
-        with destination.open("wb") as target:
-            for chunk in response.iter_content(chunk_size=1024 * 1024):
-                if not chunk:
-                    continue
-                if not first_chunk:
-                    first_chunk = chunk
-                    if is_html_payload(first_chunk):
-                        return False
-                target.write(chunk)
-
-        return destination.stat().st_size > 0
+        tmp_path.replace(destination)
+        return True
+    except requests.RequestException as exc:
+        LOGGER.exception("Network error while downloading pollution CSV from %s: %s", url, exc)
+        return False
+    except OSError as exc:
+        LOGGER.exception("Filesystem error while writing %s: %s", destination, exc)
+        return False
+    finally:
+        if tmp_path.exists():
+            try:
+                tmp_path.unlink()
+            except OSError:
+                pass
 
 
 def main() -> int:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    )
     parser = argparse.ArgumentParser(
         description="Download daily pollution concentration CSV (FR_E2_YYYY-MM-DD.csv)"
     )
@@ -72,7 +101,7 @@ def main() -> int:
 
     config_path = pathlib.Path(args.config)
     if not config_path.exists():
-        print(f"Config not found: {config_path}", file=sys.stderr)
+        LOGGER.error("Config not found: %s", config_path)
         return 1
 
     config = json.loads(config_path.read_text(encoding="utf-8"))
@@ -94,10 +123,10 @@ def main() -> int:
 
     if args.url:
         attempted.append(args.url)
-        print(f"Trying direct URL: {args.url}")
+        LOGGER.info("Trying direct URL: %s", args.url)
         ok = try_download_csv(args.url, output_path)
         if not ok:
-            print("Unable to download pollution CSV from direct URL.", file=sys.stderr)
+            LOGGER.error("Unable to download pollution CSV from direct URL")
             return 2
 
         metadata_path.parent.mkdir(parents=True, exist_ok=True)
@@ -109,8 +138,8 @@ def main() -> int:
         }
         metadata_path.write_text(json.dumps(metadata, ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
 
-        print(f"Downloaded pollution CSV to: {output_path}")
-        print(f"Metadata written to: {metadata_path}")
+        LOGGER.info("Downloaded pollution CSV to: %s", output_path)
+        LOGGER.info("Metadata written to: %s", metadata_path)
         return 0
 
     for offset in range(max(1, lookback_days + 1)):
@@ -119,7 +148,7 @@ def main() -> int:
         url = url_template.format(date=date_str)
         attempted.append(url)
 
-        print(f"Trying: {url}")
+        LOGGER.info("Trying: %s", url)
         ok = try_download_csv(url, output_path)
         if not ok:
             continue
@@ -133,13 +162,13 @@ def main() -> int:
         }
         metadata_path.write_text(json.dumps(metadata, ensure_ascii=True, indent=2) + "\n", encoding="utf-8")
 
-        print(f"Downloaded pollution CSV to: {output_path}")
-        print(f"Metadata written to: {metadata_path}")
+        LOGGER.info("Downloaded pollution CSV to: %s", output_path)
+        LOGGER.info("Metadata written to: %s", metadata_path)
         return 0
 
     if latest_resource_url:
         attempted.append(latest_resource_url)
-        print(f"Trying fallback latest resource: {latest_resource_url}")
+        LOGGER.info("Trying fallback latest resource: %s", latest_resource_url)
         ok = try_download_csv(latest_resource_url, output_path)
         if ok:
             metadata_path.parent.mkdir(parents=True, exist_ok=True)
@@ -152,14 +181,14 @@ def main() -> int:
             metadata_path.write_text(
                 json.dumps(metadata, ensure_ascii=True, indent=2) + "\n", encoding="utf-8"
             )
-            print(f"Downloaded pollution CSV to: {output_path}")
-            print(f"Metadata written to: {metadata_path}")
+            LOGGER.info("Downloaded pollution CSV to: %s", output_path)
+            LOGGER.info("Metadata written to: %s", metadata_path)
             return 0
 
-    print("Unable to download a pollution CSV for requested date range.", file=sys.stderr)
-    print("Attempted URLs:", file=sys.stderr)
+    LOGGER.error("Unable to download a pollution CSV for requested date range")
+    LOGGER.error("Attempted URLs:")
     for url in attempted:
-        print(f"- {url}", file=sys.stderr)
+        LOGGER.error("- %s", url)
     return 2
 
 

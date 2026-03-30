@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 import argparse
 import json
+import logging
 import pathlib
 from dataclasses import dataclass
+
+
+LOGGER = logging.getLogger("calculate_indices")
 
 
 POLLUTANT_LIMITS = {
@@ -162,6 +166,10 @@ def write_quality_report(report_path: pathlib.Path, counters: Counters) -> None:
 
 
 def main() -> int:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    )
     parser = argparse.ArgumentParser(description="Compute weighted pollution+meteo composite indices")
     parser.add_argument(
         "--input",
@@ -236,9 +244,9 @@ def main() -> int:
 
     write_quality_report(report_path, counters)
 
-    print(f"Indexed snapshots written to: {output_path}")
-    print(f"Indices quality report written to: {report_path}")
-    print(f"Rows: input={counters.total_rows}, output={counters.output_rows}")
+    LOGGER.info("Indexed snapshots written to: %s", output_path)
+    LOGGER.info("Indices quality report written to: %s", report_path)
+    LOGGER.info("Rows: input=%s, output=%s", counters.total_rows, counters.output_rows)
     return 0
 
 

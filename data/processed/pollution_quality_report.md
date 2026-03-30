@@ -1,7 +1,7 @@
 # Pollution Ingestion Quality Report
 
-- Total rows read: 3
-- Grouped snapshots: 2
+- Total rows read: 4
+- Grouped snapshots: 1
 - Missing station ID: 0
 - Missing timestamp: 0
 - Unknown pollutant labels: 0

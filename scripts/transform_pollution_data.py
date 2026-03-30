@@ -2,11 +2,15 @@
 import argparse
 import csv
 import json
+import logging
 import pathlib
 from dataclasses import dataclass
 from datetime import timezone
 
 from dateutil import parser as date_parser
+
+
+LOGGER = logging.getLogger("transform_pollution_data")
 
 
 POLLUTANT_SYNONYMS = {
@@ -99,6 +103,10 @@ def write_quality_report(report_path: pathlib.Path, counters: Counters) -> None:
 
 
 def main() -> int:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s - %(message)s",
+    )
     parser = argparse.ArgumentParser(
         description="Transform pollution CSV into normalized PollutantData records"
     )
@@ -228,9 +236,9 @@ def main() -> int:
     counters.grouped_rows = len(grouped)
     write_quality_report(report_path, counters)
 
-    print(f"Normalized pollution records written to: {output_path}")
-    print(f"Pollution quality report written to: {report_path}")
-    print(f"Rows: raw={counters.total_rows}, grouped={counters.grouped_rows}")
+    LOGGER.info("Normalized pollution records written to: %s", output_path)
+    LOGGER.info("Pollution quality report written to: %s", report_path)
+    LOGGER.info("Rows: raw=%s, grouped=%s", counters.total_rows, counters.grouped_rows)
     return 0
 
 
