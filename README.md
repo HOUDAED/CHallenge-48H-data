@@ -91,3 +91,29 @@ python3 scripts/download_pollution_data.py --url "https://.../FR_E2_YYYY-MM-DD.c
 - pollution.o3: O3
 - pollution.co: CO
 - pollution.so2: SO2
+
+## Step 3 - Faire une jointure geospatiale des stations
+
+Ce scope couvre:
+
+- jointure par stationId quand l'identifiant est commun
+- fallback geospatial vers la station meteo la plus proche (rayon max 50 km)
+- appariement temporel vers l'observation meteo la plus proche (delta max 6 h)
+- generation d'un rapport qualite de jointure
+
+### Execution rapide Step 3
+
+```bash
+bash scripts/run_step3_join.sh
+```
+
+### Execution manuelle Step 3
+
+```bash
+python3 scripts/join_meteo_pollution.py --meteo-input data/processed/meteo_normalized.jsonl --pollution-input data/processed/pollution_normalized.jsonl --stations-geojson data/raw/postes_synop.geojson --output data/processed/station_snapshots.jsonl --quality-report data/processed/join_quality_report.md --max-distance-km 50 --max-time-diff-hours 6
+```
+
+### Sorties Step 3
+
+- data/processed/station_snapshots.jsonl
+- data/processed/join_quality_report.md
