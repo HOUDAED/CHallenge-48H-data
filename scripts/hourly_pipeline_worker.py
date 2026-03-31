@@ -10,6 +10,21 @@ from datetime import datetime, timezone
 import requests
 
 
+# Nettoyage automatique des fichiers JSON de plus de 24h dans le dossier outbox
+import os
+import time
+
+def cleanup_outbox(outbox_dir: pathlib.Path, keep_hours: int = 24):
+    """Supprime les fichiers JSON plus vieux que keep_hours dans le dossier outbox."""
+    now = time.time()
+    for file in outbox_dir.glob("indices_payload_*.json"):
+        if file.is_file():
+            mtime = file.stat().st_mtime
+            if now - mtime > keep_hours * 3600:
+                file.unlink()
+                LOGGER.info(f"Fichier supprimé (ancien): {file}")
+
+
 LOGGER = logging.getLogger("hourly_pipeline_worker")
 
 
@@ -214,6 +229,10 @@ def main() -> int:
         if args.max_cycles > 0 and cycle >= args.max_cycles:
             LOGGER.info("Max cycles reached, stopping")
             break
+
+
+        # Nettoyage des fichiers JSON de plus de 24h dans outbox
+        cleanup_outbox(fallback_dir, keep_hours=24)
 
         LOGGER.info("Sleeping %s minute(s)", args.interval_minutes)
         time.sleep(interval_seconds)
