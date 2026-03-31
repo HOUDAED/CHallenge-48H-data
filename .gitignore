@@ -27,3 +27,4 @@ venv/
 
 # Configs sensibles (si besoin)
 config/*.secret.json
+.env
