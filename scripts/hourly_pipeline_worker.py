@@ -131,6 +131,8 @@ def execute_pipeline(run_meteo: bool, pollution_input_csv: str) -> None:
         run_cmd(["bash", "scripts/run_step2_pollution.sh"])
     run_cmd(["bash", "scripts/run_step3_join.sh"])
     run_cmd(["bash", "scripts/run_step4_indices.sh"])
+    # [BONUS] Uncomment to enable forecast generation each cycle
+    # run_cmd(["bash", "scripts/run_step6_forecast.sh"])
 
 
 def publish_or_store(
@@ -197,6 +199,11 @@ def main() -> int:
         default=0,
         help="Max cycles to execute (0 means infinite)",
     )
+    parser.add_argument(
+        "--forecast-endpoint-url",
+        default="",
+        help="Optional POST endpoint for pushing forecast data after each cycle",
+    )
     args = parser.parse_args()
 
     interval_seconds = max(args.interval_minutes, 1) * 60
@@ -216,6 +223,13 @@ def main() -> int:
             )
             payload = build_payload(indices_path)
             publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir)
+
+            # [BONUS] Uncomment to enable forecast push after each cycle
+            # if args.forecast_endpoint_url.strip():
+            #     run_cmd([
+            #         "python3", "scripts/push_forecast.py",
+            #         "--url", args.forecast_endpoint_url.strip(),
+            #     ])
 
         except subprocess.CalledProcessError as exc:
             LOGGER.error("Pipeline command failed with exit code %s", exc.returncode)

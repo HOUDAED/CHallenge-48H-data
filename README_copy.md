@@ -25,30 +25,12 @@ bash scripts/run_hourly_worker.sh
 
 ## Les étapes détaillées du pipeline sont décrites dans le fichier details_pipeline.md
 ## Les indices détaillés sont expliqués dans le fichier indices.md
-
-
-
-## Variables d'environnement utiles:
-
-- `INTERVAL_MINUTES` (defaut: `60`)
-- `ENDPOINT_URL` (URL de POST cible, si vide les payloads sont ecrits dans `data/processed/outbox`)
-- `MAX_CYCLES` (defaut: `0` = infini)
-- `RUN_METEO_EACH_CYCLE` (`true`/`false`)
-- `POLLUTION_INPUT_CSV` (fichier CSV local pollution a reutiliser sur chaque cycle)
-
-Exemple (1 cycle de test):
-
-```bash
-MAX_CYCLES=1 INTERVAL_MINUTES=60 RUN_METEO_EACH_CYCLE=true ENDPOINT_URL='' bash scripts/run_hourly_worker.sh
-```
-
----
+## Data Bonus Prediction sont décrites dans le fichier bonus-prediction.md
 
 ## Sources de données
 
 ### Données météo — SYNOP (Météo-France)
 
-- **Couverture temporelle :** années 2024 et 2025
 - **Source :** `https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/synop_{année}.csv.gz`
 - **Référentiel stations :** `postes_synop.geojson` (coordonnées GPS de chaque station)
 - **Couverture géographique :** toutes les stations SYNOP françaises (métropole + outre-mer), sans filtre géographique à l'import

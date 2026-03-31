@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
+# Usage:
+#   bash scripts/run_step1_meteo.sh              # 2 most recent years only
+#   bash scripts/run_step1_meteo.sh --all-years  # all years defined in config
 set -euo pipefail
+
+ALL_YEARS=false
+for arg in "$@"; do
+  [[ "$arg" == "--all-years" ]] && ALL_YEARS=true
+done
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
@@ -15,12 +23,14 @@ fi
   --output-dir data/raw
 
 mapfile -t YEARS < <(
-"$PYTHON_BIN" - << 'PY'
-import json
+ALL_YEARS_FLAG="$ALL_YEARS" "$PYTHON_BIN" - << 'PY'
+import json, os
 from pathlib import Path
 cfg = json.loads(Path('config/meteo_sources.json').read_text(encoding='utf-8'))
 if 'synop_sources' in cfg:
     years = sorted(int(y) for y in cfg['synop_sources'].keys())
+    if os.environ.get('ALL_YEARS_FLAG') != 'true':
+        years = years[-3:]  # default: 3 most recent years
     for y in years:
         print(y)
 else:
