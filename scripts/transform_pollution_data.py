@@ -46,8 +46,9 @@ def parse_float(value: str | None) -> float | None:
 
 
 def pick_value(row: dict[str, str], keys: list[str]) -> str | None:
+    row_lower = {k.lower(): v for k, v in row.items()}
     for key in keys:
-        value = row.get(key)
+        value = row_lower.get(key.lower())
         if value is not None and value.strip() != "":
             return value
     return None
@@ -121,11 +122,25 @@ def main() -> int:
         default="data/processed/pollution_quality_report.md",
         help="Path to markdown quality report",
     )
+    parser.add_argument(
+        "--station-coords",
+        default="data/raw/pollution/station_coords.json",
+        help="Path to station coordinates JSON lookup file",
+    )
     args = parser.parse_args()
 
     input_path = pathlib.Path(args.input)
     output_path = pathlib.Path(args.output)
     report_path = pathlib.Path(args.quality_report)
+
+    station_coords: dict[str, dict] = {}
+    coords_path = pathlib.Path(args.station_coords)
+    if coords_path.exists():
+        try:
+            station_coords = json.loads(coords_path.read_text(encoding="utf-8"))
+            LOGGER.info("Loaded %d station coords from %s", len(station_coords), coords_path)
+        except Exception as exc:
+            LOGGER.warning("Could not load station coords: %s", exc)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -228,6 +243,18 @@ def main() -> int:
                 grouped[key]["coordinates"]["latitude"] = lat
             if lon is not None and grouped[key]["coordinates"]["longitude"] is None:
                 grouped[key]["coordinates"]["longitude"] = lon
+
+    # Enrich coordinates from station_coords lookup when CSV has no lat/lon
+    enriched = 0
+    for record in grouped.values():
+        sid = record["stationId"]
+        if record["coordinates"]["latitude"] is None and sid in station_coords:
+            ref = station_coords[sid]
+            record["coordinates"]["latitude"] = ref["lat"]
+            record["coordinates"]["longitude"] = ref["lon"]
+            enriched += 1
+    if enriched:
+        LOGGER.info("Enriched coordinates for %d records from station reference", enriched)
 
     with output_path.open("w", encoding="utf-8") as dst:
         for record in grouped.values():

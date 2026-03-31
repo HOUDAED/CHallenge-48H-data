@@ -128,7 +128,9 @@ def write_fallback(payload: dict, fallback_dir: pathlib.Path) -> pathlib.Path:
 
 
 def execute_pipeline(run_meteo: bool, pollution_input_csv: str) -> None:
-    if run_meteo:
+    stations_geojson = pathlib.Path("data/raw/postes_synop.geojson")
+    meteo_normalized = pathlib.Path("data/processed/meteo_normalized.jsonl")
+    if run_meteo or not stations_geojson.exists() or not meteo_normalized.exists():
         run_cmd(["bash", "scripts/run_step1_meteo.sh"])
     if pollution_input_csv.strip():
         run_cmd(["bash", "scripts/run_step2_pollution.sh", pollution_input_csv.strip()])

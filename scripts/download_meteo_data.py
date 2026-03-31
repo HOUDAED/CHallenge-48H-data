@@ -57,8 +57,8 @@ def extract_recent_data(source_gz_path: pathlib.Path, dest_csv_path: pathlib.Pat
     """Lit le gros fichier .csv.gz et extrait les lignes des 'days' derniers jours."""
     # Calcul de la date limite en format UTC (Météo-France est en UTC)
     cutoff_date = datetime.now(timezone.utc) - timedelta(days=days)
-    # Conversion au format texte Météo-France : YYYYMMDDHHMMSS
-    cutoff_str = cutoff_date.strftime("%Y%m%d%H%M%S")
+    # Conversion au format ISO 8601 pour correspondre au format validity_time du CSV
+    cutoff_str = cutoff_date.strftime("%Y-%m-%dT%H:%M:%SZ")
     
     dest_csv_path.parent.mkdir(parents=True, exist_ok=True)
     LOGGER.info("Extraction des %d derniers jours (>= %s) depuis %s vers %s", days, cutoff_str, source_gz_path.name, dest_csv_path.name)
@@ -76,7 +76,11 @@ def extract_recent_data(source_gz_path: pathlib.Path, dest_csv_path: pathlib.Pat
             writer.writerow(header)
             
             try:
-                date_idx = header.index('date')
+                date_col = next((c for c in ('validity_time', 'date') if c in header), None)
+                if date_col is None:
+                    LOGGER.error("La colonne date est introuvable dans le fichier source. Colonnes disponibles : %s", header[:10])
+                    return
+                date_idx = header.index(date_col)
             except ValueError:
                 LOGGER.error("La colonne 'date' est introuvable dans le fichier source.")
                 return
