@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Environnement virtuel
+.venv/
+venv/
+
+# Données générées
+# Payloads JSON horaires
+/data/processed/outbox/indices_payload_*.json
+# Fichiers de données intermédiaires
+/data/processed/*.jsonl
+/data/processed/*.md
+/data/processed/.tmp_meteo/
+
+# Données brutes volumineuses
+/data/raw/
+!data/raw/postes_synop.geojson
+
+# Fichiers temporaires
+*.tmp
+*.tmp.*
+
+# Rapports de qualité
+/data/processed/*_quality_report.md
+
+# Configs sensibles (si besoin)
+config/*.secret.json
