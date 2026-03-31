@@ -168,10 +168,15 @@ def main() -> int:
         format="%(asctime)s %(levelname)s %(name)s - %(message)s",
     )
     parser = argparse.ArgumentParser(description="Run data pipeline every N minutes and publish payload")
-    parser.add_argument("--interval-minutes", type=int, default=60, help="Run frequency in minutes")
+    parser.add_argument(
+        "--interval-minutes",
+        type=int,
+        default=int(os.environ.get("INTERVAL_MINUTES", "60")),
+        help="Run frequency in minutes",
+    )
     parser.add_argument(
         "--endpoint-url",
-        default="http://localhost:8000/api/ingest",
+        default=os.environ.get("ENDPOINT_URL", "http://localhost:8000/api/ingest"),
         help="POST endpoint for publishing payload (if empty, payload is only written locally)",
     )
 
@@ -188,12 +193,13 @@ def main() -> int:
     parser.add_argument(
         "--post-timeout-seconds",
         type=int,
-        default=30,
+        default=int(os.environ.get("POST_TIMEOUT_SECONDS", "30")),
         help="Timeout for POST request",
     )
     parser.add_argument(
         "--run-meteo-each-cycle",
         action="store_true",
+        default=os.environ.get("RUN_METEO_EACH_CYCLE", "").lower() in ("1", "true", "yes"),
         help="Also run meteorological ingestion each cycle",
     )
     parser.add_argument(
@@ -209,7 +215,7 @@ def main() -> int:
     parser.add_argument(
         "--max-cycles",
         type=int,
-        default=0,
+        default=int(os.environ.get("MAX_CYCLES", "0")),
         help="Max cycles to execute (0 means infinite)",
     )
     args = parser.parse_args()

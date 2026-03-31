@@ -2,6 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pip install:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/cortex/Documents/Ynov/CHALLENGE 48H"
     ]
   }
 }
