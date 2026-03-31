@@ -145,7 +145,8 @@ def main() -> int:
     for offset in range(max(1, lookback_days + 1)):
         candidate_date = start_date - timedelta(days=offset)
         date_str = candidate_date.isoformat()
-        url = url_template.format(date=date_str)
+        year_str = str(candidate_date.year)
+        url = url_template.format(date=date_str, year=year_str)
         attempted.append(url)
 
         LOGGER.info("Trying: %s", url)

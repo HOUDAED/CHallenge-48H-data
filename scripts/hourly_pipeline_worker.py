@@ -7,7 +7,12 @@ import subprocess
 import time
 from datetime import datetime, timezone
 
+import os
+
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 # Nettoyage automatique des fichiers JSON de plus de 24h dans le dossier outbox
@@ -109,8 +114,8 @@ def build_error_payload(indices_path: pathlib.Path, error_message: str) -> dict:
     }
 
 
-def post_payload(endpoint_url: str, payload: dict, timeout_seconds: int) -> None:
-    response = requests.post(endpoint_url, json=payload, timeout=timeout_seconds)
+def post_payload(endpoint_url: str, payload: dict, headers: dict, timeout_seconds: int) -> None:
+    response = requests.post(endpoint_url, json=payload, timeout=timeout_seconds, headers=headers)
     response.raise_for_status()
 
 
@@ -123,7 +128,9 @@ def write_fallback(payload: dict, fallback_dir: pathlib.Path) -> pathlib.Path:
 
 
 def execute_pipeline(run_meteo: bool, pollution_input_csv: str) -> None:
-    if run_meteo:
+    stations_geojson = pathlib.Path("data/raw/postes_synop.geojson")
+    meteo_normalized = pathlib.Path("data/processed/meteo_normalized.jsonl")
+    if run_meteo or not stations_geojson.exists() or not meteo_normalized.exists():
         run_cmd(["bash", "scripts/run_step1_meteo.sh"])
     if pollution_input_csv.strip():
         run_cmd(["bash", "scripts/run_step2_pollution.sh", pollution_input_csv.strip()])
@@ -140,10 +147,14 @@ def publish_or_store(
     endpoint_url: str,
     timeout_seconds: int,
     fallback_dir: pathlib.Path,
+    bearer_token: str = "",
 ) -> None:
+    headers: dict = {}
+    if bearer_token.strip():
+        headers["Authorization"] = f"Bearer {bearer_token.strip()}"
     if endpoint_url.strip():
         try:
-            post_payload(endpoint_url.strip(), payload, timeout_seconds)
+            post_payload(endpoint_url.strip(), payload, headers, timeout_seconds)
             LOGGER.info("POST success: %s | records=%s", endpoint_url.strip(), payload["recordCount"])
             return
         except Exception as exc:
@@ -161,12 +172,18 @@ def main() -> int:
         format="%(asctime)s %(levelname)s %(name)s - %(message)s",
     )
     parser = argparse.ArgumentParser(description="Run data pipeline every N minutes and publish payload")
-    parser.add_argument("--interval-minutes", type=int, default=60, help="Run frequency in minutes")
+    parser.add_argument(
+        "--interval-minutes",
+        type=int,
+        default=int(os.environ.get("INTERVAL_MINUTES", "60")),
+        help="Run frequency in minutes",
+    )
     parser.add_argument(
         "--endpoint-url",
-        default="http://localhost:8000",
+        default=os.environ.get("ENDPOINT_URL", "http://localhost:8000/api/ingest"),
         help="POST endpoint for publishing payload (if empty, payload is only written locally)",
     )
+
     parser.add_argument(
         "--indices-file",
         default="data/processed/indices_composite.jsonl",
@@ -180,12 +197,13 @@ def main() -> int:
     parser.add_argument(
         "--post-timeout-seconds",
         type=int,
-        default=30,
+        default=int(os.environ.get("POST_TIMEOUT_SECONDS", "30")),
         help="Timeout for POST request",
     )
     parser.add_argument(
         "--run-meteo-each-cycle",
         action="store_true",
+        default=os.environ.get("RUN_METEO_EACH_CYCLE", "").lower() in ("1", "true", "yes"),
         help="Also run meteorological ingestion each cycle",
     )
     parser.add_argument(
@@ -194,9 +212,14 @@ def main() -> int:
         help="Optional local pollution CSV to reuse every cycle (bypass remote download)",
     )
     parser.add_argument(
+        "--bearer-token",
+        default=os.environ.get("BEARER_TOKEN", ""),
+        help="Bearer token added to the Authorization header of POST requests",
+    )
+    parser.add_argument(
         "--max-cycles",
         type=int,
-        default=0,
+        default=int(os.environ.get("MAX_CYCLES", "0")),
         help="Max cycles to execute (0 means infinite)",
     )
     parser.add_argument(
@@ -222,7 +245,7 @@ def main() -> int:
                 pollution_input_csv=args.pollution_input_csv,
             )
             payload = build_payload(indices_path)
-            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir)
+            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir, args.bearer_token)
 
             # [BONUS] Uncomment to enable forecast push after each cycle
             # if args.forecast_endpoint_url.strip():
@@ -234,11 +257,11 @@ def main() -> int:
         except subprocess.CalledProcessError as exc:
             LOGGER.error("Pipeline command failed with exit code %s", exc.returncode)
             payload = build_error_payload(indices_path, f"pipeline_failed_exit_{exc.returncode}")
-            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir)
+            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir, args.bearer_token)
         except Exception as exc:
             LOGGER.exception("Unexpected error: %s", exc)
             payload = build_error_payload(indices_path, str(exc))
-            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir)
+            publish_or_store(payload, args.endpoint_url, args.post_timeout_seconds, fallback_dir, args.bearer_token)
 
         if args.max_cycles > 0 and cycle >= args.max_cycles:
             LOGGER.info("Max cycles reached, stopping")

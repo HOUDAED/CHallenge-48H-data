@@ -17,4 +17,4 @@ fi
   --output data/processed/station_snapshots.jsonl \
   --quality-report data/processed/join_quality_report.md \
   --max-distance-km 50 \
-  --max-time-diff-hours 6
+  --max-time-diff-hours 2160

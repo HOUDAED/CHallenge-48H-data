@@ -67,7 +67,12 @@ else
   fi
 fi
 
+# Download station coordinates reference (skipped if already cached)
+"$PYTHON_BIN" scripts/download_station_coords.py \
+  --output data/raw/pollution/station_coords.json
+
 "$PYTHON_BIN" scripts/transform_pollution_data.py \
   --input "$LATEST_FILE" \
   --output data/processed/pollution_normalized.jsonl \
-  --quality-report data/processed/pollution_quality_report.md
+  --quality-report data/processed/pollution_quality_report.md \
+  --station-coords data/raw/pollution/station_coords.json
