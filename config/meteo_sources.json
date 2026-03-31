@@ -1,7 +1,8 @@
 {
   "synop_sources": {
     "2024": "https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/synop_2024.csv.gz",
-    "2025": "https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/synop_2025.csv.gz"
+    "2025": "https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/synop_2025.csv.gz",
+    "2026": "https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/synop_2026.csv.gz"
   },
   "synop_stations_geojson_url": "https://object.files.data.gouv.fr/meteofrance/data/synchro_ftp/OBS/SYNOP/postes_synop.geojson"
 }
